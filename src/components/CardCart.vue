@@ -11,7 +11,7 @@ const props = defineProps({
   },
 })
 
-const cost = (props.cart.quantity * props.cart.price).toFixed(2)
+const cost = computed(() => (props.cart.quantity * props.cart.price).toFixed(2))
 </script>
 
 <template>
@@ -31,11 +31,15 @@ const cost = (props.cart.quantity * props.cart.price).toFixed(2)
         </div>
       </div>
       <div class="flex gap-5 items-center">
-        <button class="p-3 rounded-md font-bold text-xl bg-red-500 text-white">
+        <button
+          @click="carts.decreaseCart(props.cart.id)"
+          class="p-3 rounded-md font-bold text-xl bg-red-500 text-white"
+        >
           -
         </button>
         <p class="font-bold">{{ props.cart.quantity }}</p>
         <button
+          @click="carts.increaseCart(props.cart.id)"
           class="p-3 rounded-md font-bold text-xl bg-green-600 text-white"
         >
           +
@@ -45,7 +49,10 @@ const cost = (props.cart.quantity * props.cart.price).toFixed(2)
     <div class="flex items-center justify-between mt-8">
       <div class="font-semibold text-xl">Total :$ {{ cost }}</div>
       <button class="bg-red-600 p-4 rounded-xl">
-        <i class="pi pi-trash bg-red-600 text-xl font-bold text-white"></i>
+        <i
+          @click="carts.deleteCart(props.cart.id)"
+          class="pi pi-trash bg-red-600 text-xl font-bold text-white"
+        ></i>
       </button>
     </div>
   </div>

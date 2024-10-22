@@ -15,7 +15,7 @@ const cart = useCartStore()
 
 <template>
   <div
-    class="border-2 border-[#1E5128] rounded-md shadow-xl p-4 text-white flex flex-col justify-between items-center gap-6"
+    class="border-2 border-[#1E5128] rounded-md shadow-xl p-4 text-black flex flex-col justify-between items-center gap-6"
   >
     <RouterLink :to="`/product/${props.product.id}`">
       <img
@@ -26,7 +26,7 @@ const cart = useCartStore()
     </RouterLink>
     <h2 class="font-bold">{{ props.product.title }}</h2>
     <div class="flex justify-between items-center w-full">
-      <h3>$12341234</h3>
+      <h3 class="font-semibold">$ {{ props.product.price }}</h3>
       <Rating :rating="props.product.rating" />
     </div>
     <button

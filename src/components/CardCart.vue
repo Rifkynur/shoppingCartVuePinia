@@ -1,0 +1,52 @@
+<script setup>
+import bag from '@/assets/bag.jpg'
+import { useCartStore } from '@/stores/cart.js'
+import { computed } from 'vue'
+
+const carts = useCartStore()
+const props = defineProps({
+  cart: {
+    type: Object,
+    required: true,
+  },
+})
+
+const cost = (props.cart.quantity * props.cart.price).toFixed(2)
+</script>
+
+<template>
+  <div class="mt-4">
+    <div class="flex justify-between">
+      <div class="flex items-center gap-8">
+        <img
+          :src="props.cart.thumbnail"
+          :alt="props.cart.title"
+          class="size-40"
+        />
+        <div>
+          <h3 class="text-2xl font-bold capitalize">
+            {{ props.cart.title }}
+          </h3>
+          <h4 class="font-semibold">{{ props.cart.price }}</h4>
+        </div>
+      </div>
+      <div class="flex gap-5 items-center">
+        <button class="p-3 rounded-md font-bold text-xl bg-red-500 text-white">
+          -
+        </button>
+        <p class="font-bold">{{ props.cart.quantity }}</p>
+        <button
+          class="p-3 rounded-md font-bold text-xl bg-green-600 text-white"
+        >
+          +
+        </button>
+      </div>
+    </div>
+    <div class="flex items-center justify-between mt-8">
+      <div class="font-semibold text-xl">Total :$ {{ cost }}</div>
+      <button class="bg-red-600 p-4 rounded-xl">
+        <i class="pi pi-trash bg-red-600 text-xl font-bold text-white"></i>
+      </button>
+    </div>
+  </div>
+</template>

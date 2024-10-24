@@ -21,14 +21,14 @@ onMounted(() => {
     <p v-if="products.isLoading">Loading...</p>
     <div
       v-else
-      class="mx-auto max-w-3xl flex justify-center items-center gap-8"
+      class="mx-auto max-w-3xl flex flex-col md:flex-row justify-center items-center gap-8"
     >
       <img
         :src="products.product.thumbnail"
         :alt="products.product.title"
         class="size-80 object-cover"
       />
-      <div class="flex flex-col gap-4 items-start">
+      <div class="flex flex-col gap-4 items-start px-4 pb-8">
         <h3 class="font-bold text-2xl">{{ products.product.title }}</h3>
         <h4 class="font-semibold">$ {{ products.product.price }}</h4>
         <p>{{ products.product.description }}</p>

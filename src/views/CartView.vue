@@ -6,10 +6,10 @@ const carts = useCartStore()
 </script>
 
 <template>
-  <div class="px-10 pb-10">
+  <div class="px-4 lg:px-10 pb-10">
     <h1 class="text-3xl font-bold">Cart</h1>
     <CardCart v-for="cart in carts.carts" :key="cart.id" :cart="cart" />
-    <div class="flex items-center justify-between mt-8">
+    <div class="flex items-end justify-between mt-8">
       <div>
         <button
           @click="carts.clearCart"

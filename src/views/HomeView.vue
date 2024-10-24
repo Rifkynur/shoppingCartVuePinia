@@ -10,9 +10,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="px-12">
+  <main class="px-4 lg:px-12">
     <p v-if="products.islaoding">Loading....</p>
-    <div v-else class="grid grid-cols-3 gap-4">
+    <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       <CardProduct
         v-for="(product, index) in products.products"
         :key="index"

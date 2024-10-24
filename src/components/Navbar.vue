@@ -12,7 +12,7 @@ const totalItems = computed(() =>
 </script>
 
 <template>
-  <nav class="flex w-full justify-between items-center px-20 py-10">
+  <nav class="flex w-full justify-between items-center px-4 lg:px-20 py-10">
     <RouterLink to="/">
       <img :src="Logo" alt="logo" class="size-14" />
     </RouterLink>
